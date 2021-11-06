@@ -1,0 +1,20 @@
+{
+  "name": "pbl6_nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.9.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@nguyendang52:nguyendang52/PBL6_NODEJS.git"
+  },
+  "author": "",
+  "license": "ISC"
+}
