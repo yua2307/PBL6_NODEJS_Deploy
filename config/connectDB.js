@@ -14,11 +14,10 @@ const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   },
 });
 
-const db = {};
+const initModels = require("../models/init-models");
+const db = initModels(sequelize);
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-
-//db.applicants = require("../models/applicant")(sequelize, Sequelize);
 
 module.exports = db;
