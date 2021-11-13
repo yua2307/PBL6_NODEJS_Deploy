@@ -1,28 +1,32 @@
 const Sequelize = require("sequelize");
 module.exports = function (sequelize, DataTypes) {
   return sequelize.define(
-    "HreoTestQuestions",
+    "UserResumes",
     {
       Id: {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
       },
-      OrderIndex: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
-      Content: {
+      ResumeName: {
         type: DataTypes.TEXT,
         allowNull: true,
       },
-      Answers: {
+      JobTitle: {
         type: DataTypes.TEXT,
         allowNull: true,
       },
-      Result: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+      UserId: {
+        type: DataTypes.UUID,
+        allowNull: true,
+      },
+      FileId: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+        references: {
+          model: "FileInformations",
+          key: "Id",
+        },
       },
       ExtraProperties: {
         type: DataTypes.TEXT,
@@ -61,28 +65,19 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.DATE,
         allowNull: true,
       },
-      TestId: {
-        type: DataTypes.UUID,
-        allowNull: false,
-        defaultValue: "00000000-0000-0000-0000-000000000000",
-        references: {
-          model: "HreoTests",
-          key: "Id",
-        },
-      },
     },
     {
       sequelize,
-      tableName: "HreoTestQuestions",
-      schema: "test",
+      tableName: "UserResumes",
+      schema: "user",
       timestamps: false,
       indexes: [
         {
-          name: "IX_HreoTestQuestions_TestId",
-          fields: [{ name: "TestId" }],
+          name: "IX_UserResumes_FileId",
+          fields: [{ name: "FileId" }],
         },
         {
-          name: "PK_HreoTestQuestions",
+          name: "PK_UserResume",
           unique: true,
           fields: [{ name: "Id" }],
         },
