@@ -23,9 +23,9 @@ app.listen(PORT, () => {
 });
 // simple route
 app.get("/", async (req, res) => {
-  // const listCompany = await db.Companies.findAll();
-  // console.log(listCompany);
-  // res.json({ listCompany: listCompany });
+  const listCompany = await db.Companies.findAll();
+  console.log(listCompany);
+  res.json({ listCompany: listCompany });
 
-  res.json({ message: "abcd" });
+  // res.json({ message: "abcd" });
 });
