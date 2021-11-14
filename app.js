@@ -22,10 +22,12 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 // simple route
-app.get("/", async (req, res) => {
+app.get("/", (req, res) => {
+  res.json({ message: "Hello world" });
+});
+
+app.get("/company", async (req, res) => {
   const listCompany = await db.Companies.findAll();
   console.log(listCompany);
   res.json({ listCompany: listCompany });
-
-  // res.json({ message: "abcd" });
 });
