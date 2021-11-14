@@ -10,10 +10,10 @@ var _InterestedPosts = require("./InterestedPosts");
 var _InvitationPosts = require("./InvitationPosts");
 var _Posts = require("./Posts");
 var _UserInformations = require("./UserInformations");
+var _UserResumes = require("./UserResumes");
 var ___EFMigrationsHistory = require("./__EFMigrationsHistory");
 
 function initModels(sequelize) {
-  
   var Companies = _Companies(sequelize, DataTypes);
   var Branches = _Branches(sequelize, DataTypes);
   var UserInformations = _UserInformations(sequelize, DataTypes);
@@ -25,7 +25,7 @@ function initModels(sequelize) {
   var FileInformations = _FileInformations(sequelize, DataTypes);
   var InterestedPosts = _InterestedPosts(sequelize, DataTypes);
   var InvitationPosts = _InvitationPosts(sequelize, DataTypes);
-
+  var UserResumes = _UserResumes(sequelize, DataTypes);
   var __EFMigrationsHistory = ___EFMigrationsHistory(sequelize, DataTypes);
 
   Branches.belongsTo(Companies, { as: "Company", foreignKey: "CompanyId" });
@@ -101,7 +101,10 @@ function initModels(sequelize) {
     as: "HreoTestQuestions",
     foreignKey: "TestId",
   });
-
+  UserResumes.belongsTo(FileInformations, {
+    as: "FileInformation",
+    foreignKey: "Id",
+  });
   return {
     ApplicantPosts,
     Branches,
@@ -114,6 +117,7 @@ function initModels(sequelize) {
     InvitationPosts,
     Posts,
     UserInformations,
+    UserResumes,
     __EFMigrationsHistory,
   };
 }

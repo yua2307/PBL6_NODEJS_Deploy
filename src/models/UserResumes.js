@@ -7,6 +7,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.UUID,
         allowNull: false,
         primaryKey: true,
+        defaultValue: Sequelize.UUIDV4,
       },
       ResumeName: {
         type: DataTypes.TEXT,
@@ -19,6 +20,10 @@ module.exports = function (sequelize, DataTypes) {
       UserId: {
         type: DataTypes.UUID,
         allowNull: true,
+        references: {
+          model: "UserInformations",
+          key: "Id",
+        },
       },
       FileId: {
         type: DataTypes.TEXT,
@@ -69,7 +74,7 @@ module.exports = function (sequelize, DataTypes) {
     {
       sequelize,
       tableName: "UserResumes",
-      schema: "user",
+      schema: "file",
       timestamps: false,
       indexes: [
         {
@@ -77,7 +82,7 @@ module.exports = function (sequelize, DataTypes) {
           fields: [{ name: "FileId" }],
         },
         {
-          name: "PK_UserResume",
+          name: "PK_UserResumes",
           unique: true,
           fields: [{ name: "Id" }],
         },

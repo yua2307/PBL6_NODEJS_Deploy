@@ -74,7 +74,7 @@ module.exports = function (sequelize, DataTypes) {
       sequelize,
       tableName: "InvitationPosts",
       schema: "post",
-      timestamps: false,
+      timestamps: true,
       indexes: [
         {
           name: "IX_InvitationPosts_ApplicationId",
