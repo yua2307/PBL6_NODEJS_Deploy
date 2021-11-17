@@ -1,42 +1,22 @@
 const Sequelize = require('sequelize');
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('Posts', {
+  return sequelize.define('NotificationUsers', {
     Id: {
       type: DataTypes.UUID,
       allowNull: false,
       primaryKey: true
     },
+    UserId: {
+      type: DataTypes.UUID,
+      allowNull: false
+    },
     Title: {
       type: DataTypes.TEXT,
       allowNull: true
     },
-    Language: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    Content: {
+    Body: {
       type: DataTypes.TEXT,
       allowNull: true
-    },
-    Number: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    Level: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    PostStatus: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    DateRange: {
-      type: DataTypes.INTEGER,
-      allowNull: false
-    },
-    IsHidden: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false
     },
     ExtraProperties: {
       type: DataTypes.TEXT,
@@ -77,12 +57,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   }, {
     sequelize,
-    tableName: 'Posts',
-    schema: 'post',
+    tableName: 'NotificationUsers',
+    schema: 'notification',
     timestamps: false,
     indexes: [
       {
-        name: "PK_Posts",
+        name: "PK_NotificationUsers",
         unique: true,
         fields: [
           { name: "Id" },

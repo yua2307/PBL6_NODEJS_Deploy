@@ -1,0 +1,35 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "defaultTitle",
+        "description": "defaultDescription",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080"
+        }
+    ],
+    "paths": {
+        "/company": {
+            "get": {
+                "description": "Get all company",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "servers": [
+                    {
+                        "url": "http://localhost:8080"
+                    }
+                ]
+            },
+            "servers": [
+                {
+                    "url": "http://localhost:8080"
+                }
+            ]
+        }
+    }
+}
