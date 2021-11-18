@@ -1,4 +1,4 @@
-const db = require("../config/connectDB");
+const db = require("../db/connectDB");
 const UserResume = db.UserResumes;
 module.exports = {
   getAll() {

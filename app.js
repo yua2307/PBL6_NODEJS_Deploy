@@ -1,12 +1,13 @@
 const express = require("express");
 const cors = require("cors");
-const db = require("./config/connectDB");
+const db = require("./db/connectDB");
 const app = express();
 
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
 const userResumesRoute = require("./routes/UserResumeRoute");
+const emailRoute = require("./routes/SendEmail");
 // const swaggerOptions = {
 //   swaggerDefinition: {
 //     openapi: "3.0.0",
@@ -36,7 +37,7 @@ db.sequelize.sync().then(() => {
 });
 
 app.use(userResumesRoute);
-
+app.use(emailRoute);
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
