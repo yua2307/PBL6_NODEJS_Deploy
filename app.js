@@ -6,6 +6,7 @@ const app = express();
 const swaggerJsDoc = require("swagger-jsdoc");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("./swagger.json");
+const userResumesRoute = require("./routes/UserResumeRoute");
 // const swaggerOptions = {
 //   swaggerDefinition: {
 //     openapi: "3.0.0",
@@ -30,10 +31,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // connect db
-
 db.sequelize.sync().then(() => {
   console.log("Connect DB Successfully");
 });
+
+app.use(userResumesRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
