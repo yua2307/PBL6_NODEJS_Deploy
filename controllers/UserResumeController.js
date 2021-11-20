@@ -1,4 +1,5 @@
 const userResumeRepository = require("../repositories/UserResumeRepository");
+
 module.exports = {
   async getAll(req, res) {
     try {
@@ -60,7 +61,7 @@ module.exports = {
         ...req.body,
         LastModificationTime: new Date(),
       };
-      
+
       const userResumeNew = await userResumeRepository.update(userResumeUpdate);
       res.status(201).send(userResumeNew);
     } catch (err) {}
