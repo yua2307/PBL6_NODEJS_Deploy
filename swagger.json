@@ -11,12 +11,15 @@
         }
     ],
     "paths": {
-        "/company": {
+        "/user-resume": {
             "get": {
-                "description": "Get all company",
+                "description": "Get all user resume",
                 "responses": {
                     "200": {
                         "description": "OK"
+                    },
+                    "201": {
+                        "description": ""
                     }
                 },
                 "servers": [
