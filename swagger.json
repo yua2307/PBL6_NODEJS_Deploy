@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "defaultTitle",
-    "description": "defaultDescription",
-    "version": "0.1"
+    "title": "PBL6-NODEJS",
+    "version": "0.1",
+    "description": "PBL6-NODEJS"
   },
   "servers": [
     {
@@ -16,23 +16,249 @@
         "description": "Get all user resume",
         "responses": {
           "200": {
-            "description": "Successful Operation"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserResume"
+                  }
+                }
+              }
+            }
           },
-          "201": {
-            "description": ""
+          "404": {
+            "description": "Not Found"
           }
         },
         "servers": [
           {
-            "url": "http://localhost:8080"
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
           }
         ]
       },
-      "servers": [
-        {
-          "url": "http://localhost:8080"
+      "post": {
+        "description": "Create new user resume",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserResume"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Create new user resume successfully"
+          },
+          "400": {
+            "description": "Invalid Request"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
+          }
+        ]
+      },
+      "put": {
+        "description": "update user resume",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserResume"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "update user resume successfully"
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
+          }
+        ]
+      }
+    },
+    "/user-resume/{id}": {
+      "get": {
+        "description": "get User Resume by user resume id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "user resume ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserResume"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
+          }
+        ]
+      },
+      "delete": {
+        "description": "delete User Resume by user resume id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "user resume ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "delete user resume sucessfully"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
+          }
+        ]
+      }
+    },
+    "/user-resume/{userId}": {
+      "get": {
+        "description": "get User Resume by user  id",
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "user ID",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserResume"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
+          }
+        ]
+      }
+    },
+    "/mailing": {
+      "post": {
+        "description": "Create new user resume",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InfoReceiverMail"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Send Email Sucessfully"
+          },
+          "400": {
+            "description": "Invalid Request"
+          }
+        },
+        "servers": [
+          {
+            "url": "https://pbl6nodejs.azurewebsites.net/api"
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "UserResume": {
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "ResumeName": {
+            "type": "string"
+          },
+          "JobTitle": {
+            "type": "string"
+          },
+          "FileInformationId": {
+            "type": "string"
+          },
+          "UserId": {
+            "type": "string"
+          }
         }
-      ]
+      },
+      "InfoReceiverMail": {
+        "properties": {
+          "receiveMail": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }
