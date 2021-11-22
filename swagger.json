@@ -1,38 +1,38 @@
 {
-    "openapi": "3.0.1",
-    "info": {
-        "title": "defaultTitle",
-        "description": "defaultDescription",
-        "version": "0.1"
-    },
-    "servers": [
-        {
-            "url": "http://localhost:8080"
-        }
-    ],
-    "paths": {
-        "/user-resume": {
-            "get": {
-                "description": "Get all user resume",
-                "responses": {
-                    "200": {
-                        "description": "OK"
-                    },
-                    "201": {
-                        "description": ""
-                    }
-                },
-                "servers": [
-                    {
-                        "url": "http://localhost:8080"
-                    }
-                ]
-            },
-            "servers": [
-                {
-                    "url": "http://localhost:8080"
-                }
-            ]
-        }
+  "openapi": "3.0.1",
+  "info": {
+    "title": "defaultTitle",
+    "description": "defaultDescription",
+    "version": "0.1"
+  },
+  "servers": [
+    {
+      "url": "https://pbl6nodejs.azurewebsites.net/"
     }
+  ],
+  "paths": {
+    "/user-resume": {
+      "get": {
+        "description": "Get all user resume",
+        "responses": {
+          "200": {
+            "description": "Successful Operation"
+          },
+          "201": {
+            "description": ""
+          }
+        },
+        "servers": [
+          {
+            "url": "http://localhost:8080"
+          }
+        ]
+      },
+      "servers": [
+        {
+          "url": "http://localhost:8080"
+        }
+      ]
+    }
+  }
 }
