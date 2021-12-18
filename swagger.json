@@ -248,7 +248,7 @@
       },
       "InfoReceiverMail": {
         "properties": {
-          "receiveMail": {
+          "email": {
             "type": "string"
           },
           "subject": {
