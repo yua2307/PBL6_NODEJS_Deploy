@@ -4,11 +4,7 @@ const auth = require("../middleware/auth");
 
 const userResumeController = require("../controllers/UserResumeController");
 
-router.get(
-  "/api/user-resume/:userId",
-  auth,
-  userResumeController.getAllByUserId
-);
+router.get("/api/user-resume/:userId", userResumeController.getAllByUserId);
 
 router.get("/api/user-resume", userResumeController.getAll);
 
