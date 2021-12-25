@@ -10,12 +10,12 @@ router.get(
   userResumeController.getAllByUserId
 );
 
-router.get("/api/user-resume", auth, userResumeController.getAll);
+router.get("/api/user-resume", userResumeController.getAll);
 
-router.post("/api/user-resume", auth, userResumeController.create);
+router.post("/api/user-resume", userResumeController.create);
 
-router.put("/api/user-resume", auth, userResumeController.update);
+router.put("/api/user-resume", userResumeController.update);
 
-router.delete("/api/user-resume/:id", auth, userResumeController.deleteById);
+router.delete("/api/user-resume/:id", userResumeController.deleteById);
 
 module.exports = router;

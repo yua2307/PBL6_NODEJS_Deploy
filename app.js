@@ -11,11 +11,6 @@ const emailRoute = require("./routes/SendEmail");
 
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-const corsOptions = {
-  origin: "*",
-  credentials: true, //access-control-allow-credentials:true
-  optionSuccessStatus: 200,
-};
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
